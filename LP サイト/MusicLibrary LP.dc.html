@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MuLy — 聴いた音楽が、そのままグラフになる。</title>
+<meta name="description" content="CD音源もApple Musicも、まとめて分析。あなたの音楽ライフを、ひとつのグラフで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://musiclibrary-lp.web.app">
+<meta property="og:title" content="MuLy">
+<meta property="og:description" content="CD音源もApple Musicも、まとめて分析。あなたの音楽ライフを、ひとつのグラフで。">
+<meta property="og:image" content="https://musiclibrary-lp.web.app/assets/appicon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MuLy">
+<meta name="twitter:description" content="CD音源もApple Musicも、まとめて分析。あなたの音楽ライフを、ひとつのグラフで。">
+<meta name="twitter:image" content="https://musiclibrary-lp.web.app/assets/appicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f0eee9;font-family:"Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+@keyframes barSettle1{0%{transform:scaleY(0.03)}5%{transform:scaleY(0.2114)}10%{transform:scaleY(0.4605)}15%{transform:scaleY(0.645)}20%{transform:scaleY(0.7045)}25%{transform:scaleY(0.6541)}30%{transform:scaleY(0.5521)}35%{transform:scaleY(0.4607)}40%{transform:scaleY(0.4168)}45%{transform:scaleY(0.4242)}50%{transform:scaleY(0.4626)}55%{transform:scaleY(0.5049)}60%{transform:scaleY(0.5311)}65%{transform:scaleY(0.5349)}70%{transform:scaleY(0.522)}75%{transform:scaleY(0.5037)}80%{transform:scaleY(0.4897)}85%{transform:scaleY(0.4849)}90%{transform:scaleY(0.4884)}95%{transform:scaleY(0.4958)}100%{transform:scaleY(0.5027)}}
+@keyframes barSettle2{0%{transform:scaleY(0.35)}5%{transform:scaleY(0.5429)}10%{transform:scaleY(0.808)}15%{transform:scaleY(1.0042)}20%{transform:scaleY(1.05)}25%{transform:scaleY(1.0139)}30%{transform:scaleY(0.9054)}35%{transform:scaleY(0.8082)}40%{transform:scaleY(0.7615)}45%{transform:scaleY(0.7693)}50%{transform:scaleY(0.8102)}55%{transform:scaleY(0.8552)}60%{transform:scaleY(0.8831)}65%{transform:scaleY(0.8871)}70%{transform:scaleY(0.8734)}75%{transform:scaleY(0.8539)}80%{transform:scaleY(0.8391)}85%{transform:scaleY(0.834)}90%{transform:scaleY(0.8376)}95%{transform:scaleY(0.8456)}100%{transform:scaleY(0.8528)}}
+@keyframes barSettle3{0%{transform:scaleY(0.25)}5%{transform:scaleY(0.4429)}10%{transform:scaleY(0.708)}15%{transform:scaleY(0.9042)}20%{transform:scaleY(0.9676)}25%{transform:scaleY(0.9139)}30%{transform:scaleY(0.8054)}35%{transform:scaleY(0.7082)}40%{transform:scaleY(0.6615)}45%{transform:scaleY(0.6693)}50%{transform:scaleY(0.7102)}55%{transform:scaleY(0.7552)}60%{transform:scaleY(0.7831)}65%{transform:scaleY(0.7871)}70%{transform:scaleY(0.7734)}75%{transform:scaleY(0.7539)}80%{transform:scaleY(0.7391)}85%{transform:scaleY(0.734)}90%{transform:scaleY(0.7376)}95%{transform:scaleY(0.7456)}100%{transform:scaleY(0.7528)}}
+@keyframes barSettle4{0%{transform:scaleY(0.17)}5%{transform:scaleY(0.3552)}10%{transform:scaleY(0.6097)}15%{transform:scaleY(0.7981)}20%{transform:scaleY(0.8589)}25%{transform:scaleY(0.8073)}30%{transform:scaleY(0.7032)}35%{transform:scaleY(0.6099)}40%{transform:scaleY(0.5651)}45%{transform:scaleY(0.5726)}50%{transform:scaleY(0.6118)}55%{transform:scaleY(0.655)}60%{transform:scaleY(0.6817)}65%{transform:scaleY(0.6856)}70%{transform:scaleY(0.6725)}75%{transform:scaleY(0.6537)}80%{transform:scaleY(0.6395)}85%{transform:scaleY(0.6346)}90%{transform:scaleY(0.6381)}95%{transform:scaleY(0.6457)}100%{transform:scaleY(0.6527)}}
+@keyframes bounceCue{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@media (prefers-reduced-motion: reduce){[data-eqbar]{animation:none!important;transform:scaleY(0.8)!important}[data-cue]{animation:none!important}}
+@media (max-width: 1024px) {
+  .lp-hero{padding:56px 24px !important}
+  .lp-hero-grid{grid-template-columns:1fr !important;gap:28px !important}
+  .lp-eqbars{height:160px !important}
+  [data-eqbar]{height:160px !important;width:36px !important}
+  .lp-pad-lg{padding:64px 24px !important}
+  .lp-pad-download{padding:56px 24px !important}
+  .lp-header{padding:14px 20px !important}
+  .lp-nav{gap:18px !important}
+  .lp-footer{padding:24px 24px !important}
+  .lp-hero-h1{font-size:34px !important;line-height:1.35 !important}
+  .lp-hero-p{font-size:16px !important;max-width:none !important}
+  .lp-h2{font-size:24px !important}
+  .lp-h2-lg{font-size:26px !important}
+  .lp-compare-row{gap:28px !important;height:160px !important}
+  .lp-stats-grid{grid-template-columns:1fr !important}
+  .lp-br{display:none}
+}
+@media (max-width: 480px) {
+  .lp-nav{display:none !important}
+  .lp-pad-lg{padding:48px 16px !important}
+  .lp-pad-download{padding:40px 16px !important}
+  .lp-header{padding:12px 16px !important}
+  .lp-hero{padding:40px 16px !important}
+  .lp-hero-h1{font-size:24px !important;line-height:1.4 !important}
+  .lp-h2-lg{font-size:17px !important;line-height:1.5 !important}
+  .lp-hero-p{font-size:14px !important}
+  .lp-features-grid{grid-template-columns:1fr !important;gap:16px !important}
+  .lp-gallery-card{width:150px !important}
+  .lp-gallery-frame{width:150px !important;height:300px !important}
+  .lp-personality-card{width:132px !important}
+  .lp-stat-num{font-size:30px !important}
+  .lp-stats-grid{gap:12px !important}
+}
+</style>
+</helmet>
+
+<div style="width:100%;background:{{ theme.bg }};color:{{ theme.text }};font-family:'Hiragino Sans','Noto Sans JP',sans-serif;transition:background 300ms,color 300ms;">
+
+<header class="lp-header" style="position:sticky;top:0;z-index:10;background:{{ theme.bg }};border-bottom:1px solid {{ theme.border }};padding:20px 56px;">
+<div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+<div style="display:flex;align-items:center;gap:10px;">
+<img src="assets/appicon.png" alt="MuLy" style="width:32px;height:32px;border-radius:8px;">
+<span style="font-weight:700;font-size:17px;letter-spacing:-0.01em;">MuLy</span>
+</div>
+<nav class="lp-nav" style="display:flex;align-items:center;gap:32px;">
+<a href="#features" style="color:{{ theme.textSecondary }};text-decoration:none;font-size:14px;font-weight:500;">機能</a>
+<a href="#howitworks" style="color:{{ theme.textSecondary }};text-decoration:none;font-size:14px;font-weight:500;">使い方</a>
+<a href="#download" style="color:{{ theme.textSecondary }};text-decoration:none;font-size:14px;font-weight:500;">ダウンロード</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;">
+<a href="https://github.com/AgeFactory24/MusicLibraryApp" target="_blank" rel="noopener" aria-label="GitHub" style="width:34px;height:34px;border-radius:50%;border:1px solid {{ theme.border }};display:flex;align-items:center;justify-content:center;text-decoration:none;color:{{ theme.text }};">
+<svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+<span style="padding:9px 18px;border-radius:999px;background:{{ theme.accent }};color:#fff;font-size:13px;font-weight:600;">近日公開</span>
+</div>
+</div>
+</header>
+
+<section class="lp-hero" style="padding:96px 56px;background:{{ theme.bgAlt }};">
+<div class="lp-hero-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;">
+<div>
+<div style="font-size:13px;font-weight:700;letter-spacing:0.12em;color:{{ theme.accent }};margin-bottom:18px;">MUSIC × DATA</div>
+<h1 class="lp-hero-h1" style="font-size:52px;line-height:1.28;font-weight:900;margin:0 0 24px;letter-spacing:-0.02em;">聴いた音楽が、<br class="lp-br">そのままグラフになる。</h1>
+<p class="lp-hero-p" style="font-size:18px;line-height:1.8;color:{{ theme.textSecondary }};margin:0 0 36px;max-width:440px;">CD音源もApple Musicも、まとめて分析。<br class="lp-br">あなたの音楽ライフを、ひとつのグラフで。</p>
+<div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+<a href="TestFlight Guide.dc.html" style="display:flex;align-items:center;gap:10px;padding:16px 28px;border-radius:12px;background:{{ theme.accent }};color:#fff;text-decoration:none;font-weight:700;font-size:15px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9 22 2Z"></path></svg>TestFlightで試す</a>
+<span style="display:flex;align-items:center;gap:10px;padding:16px 28px;border-radius:12px;border:1px solid {{ theme.border }};color:{{ theme.textSecondary }};font-weight:600;font-size:15px;opacity:0.7;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>近日公開 — App Store</span>
+<a href="#howitworks" style="display:inline-flex;align-items:center;gap:6px;color:{{ theme.textSecondary }};text-decoration:underline;font-weight:600;font-size:14px;">使い方を見る<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+<div class="lp-eqbars" style="display:flex;align-items:flex-end;justify-content:center;gap:14px;height:260px;">
+<div data-eqbar="1" style="width:50px;height:261px;background:{{ theme.accent }};border-radius:8px;transform-origin:bottom;animation:barSettle1 3.5s linear 1 both;"></div>
+<div data-eqbar="1" style="width:50px;height:261px;background:{{ theme.accent }};border-radius:8px;transform-origin:bottom;animation:barSettle2 3.1s linear 1 both;"></div>
+<div data-eqbar="1" style="width:50px;height:261px;background:{{ theme.accent }};border-radius:8px;transform-origin:bottom;animation:barSettle3 3.9s linear 1 both;"></div><div data-eqbar="1" style="width:50px;height:261px;background:{{ theme.accent }};border-radius:8px;transform-origin:bottom;animation:barSettle4 3.6s linear 1 both;"></div>
+</div>
+</div>
+</section>
+
+<div style="display:flex;justify-content:center;padding:16px 0;background:{{ theme.bgAlt }};">
+<span data-cue="1" style="color:{{ theme.textSecondary }};animation:bounceCue 1.8s ease-in-out infinite;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+</div>
+
+<section ref="{{ problemRef }}" class="lp-pad-lg" style="padding:120px 56px;text-align:center;">
+<h2 class="lp-h2-lg" style="font-size:32px;font-weight:800;max-width:640px;margin:0 auto 16px;letter-spacing:-0.01em;">Apple MusicのReplayは、<br class="lp-br">CDで聴いた分を数えてくれない。</h2>
+<p style="font-size:16px;color:{{ theme.textSecondary }};max-width:520px;margin:0 auto 64px;">ストリーミングだけの記録では、あなたの本当の音楽ライフは見えてこない。</p>
+<div class="lp-compare-row" style="display:flex;justify-content:center;align-items:flex-end;gap:80px;height:220px;">
+<div style="display:flex;flex-direction:column;align-items:center;gap:16px;height:100%;justify-content:flex-end;">
+<div style="width: 64px; height: 90px; background: {{ theme.border }}; border-radius: 8px 8px 0 0; transform-origin: bottom; transition: transform 900ms cubic-bezier(0.22,1,0.36,1); transform: scaleY({{ problemScale }})"></div>
+<span style="font-size:14px;color:{{ theme.textSecondary }};font-weight:600;">Apple Musicだけ</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:16px;height:100%;justify-content:flex-end;">
+<div style="width:64px;height:100%;background:{{ theme.accent }};border-radius:8px 8px 0 0;transform-origin:bottom;transition:transform 900ms cubic-bezier(0.22,1,0.36,1) 150ms;transform:scaleY({{ problemScale }});"></div>
+<span style="font-size:14px;color:{{ theme.text }};font-weight:700;">MuLyなら</span>
+</div>
+</div>
+</section>
+
+<section id="features" class="lp-pad-lg" style="padding:120px 56px;">
+<div style="text-align:center;margin-bottom:56px;">
+<h2 class="lp-h2" style="font-size:32px;font-weight:800;margin:0 0 12px;">主要機能</h2>
+<p style="font-size:16px;color:{{ theme.textSecondary }};">聴くほどに、見えてくる。</p>
+</div>
+<div class="lp-features-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1280px;margin:0 auto;">
+<sc-for list="{{ features }}" as="f" hint-placeholder-count="6">
+<div style="background:{{ theme.card }};border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;">
+<div style="display:flex;align-items:flex-end;gap:5px;height:32px;">
+<div style="width:8px;height:{{ f.bar1 }}%;background:{{ theme.accent }};border-radius:2px;"></div>
+<div style="width:8px;height:{{ f.bar2 }}%;background:{{ theme.accent }};border-radius:2px;"></div>
+<div style="width:8px;height:{{ f.bar3 }}%;background:{{ theme.accent }};border-radius:2px;"></div>
+<div style="width:8px;height:{{ f.bar4 }}%;background:{{ theme.accent }};border-radius:2px;"></div>
+</div>
+<div style="border-radius:10px;overflow:hidden;height:120px;background-image:repeating-linear-gradient(45deg,{{ theme.border }},{{ theme.border }} 8px,transparent 8px,transparent 16px);background-color:{{ theme.bgAlt }};display:flex;align-items:center;justify-content:center;">
+<span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:{{ theme.textSecondary }};background:{{ theme.bg }};padding:4px 10px;border-radius:6px;">SCREENSHOT</span>
+</div>
+<h3 style="margin:0;font-size:17px;font-weight:700;">{{ f.title }}</h3>
+<p style="margin:0;font-size:14px;line-height:1.6;color:{{ theme.textSecondary }};">{{ f.desc }}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="lp-pad-lg" style="padding:120px 56px;background:{{ theme.bgAlt }};">
+<div style="text-align:center;margin-bottom:56px;">
+<h2 class="lp-h2" style="font-size:32px;font-weight:800;margin:0 0 12px;">画面プレビュー</h2>
+<p style="font-size:15px;color:{{ theme.textSecondary }};">※ 現在は仮素材です。正式版で差し替え予定。</p>
+</div>
+<div style="display:flex;gap:28px;overflow-x:auto;padding:8px 4px 24px;">
+<sc-for list="{{ galleryItems }}" as="g" hint-placeholder-count="5">
+<div class="lp-gallery-card" style="flex:none;width:220px;display:flex;flex-direction:column;align-items:center;gap:14px;">
+<div class="lp-gallery-frame" style="width:220px;height:440px;border-radius:36px;background:{{ theme.text }};padding:14px;box-sizing:border-box;">
+<div style="width:100%;height:100%;border-radius:24px;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.14),rgba(255,255,255,0.14) 8px,transparent 8px,transparent 16px);background-color:{{ theme.textSecondary }};display:flex;align-items:center;justify-content:center;">
+<span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#fff;background:rgba(0,0,0,0.35);padding:4px 10px;border-radius:6px;">SCREENSHOT</span>
+</div>
+</div>
+<span style="font-size:13px;font-weight:600;color:{{ theme.textSecondary }};">{{ g.label }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="lp-pad-lg" style="padding:120px 56px;text-align:center;">
+<h2 class="lp-h2" style="font-size:32px;font-weight:800;margin:0 0 12px;">あなたはどのタイプ?</h2>
+<p style="font-size:16px;color:{{ theme.textSecondary }};margin:0 0 56px;">12種のパーソナリティ診断、その全てをご紹介。</p>
+<div style="display:flex;gap:20px;overflow-x:auto;padding:8px 4px 24px;max-width:1100px;margin:0 auto;">
+<sc-for list="{{ personalityTypes }}" as="p" hint-placeholder-count="12">
+<div class="lp-personality-card" style="flex:none;width:160px;padding:20px 14px 24px;border-radius:20px;background-image:linear-gradient(160deg,{{ theme.accentSoft }},{{ theme.card }});display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;">
+<object type="image/svg+xml" data="{{ p.src }}" width="120" height="120" style="pointer-events:none;"></object>
+<span style="font-size:14px;font-weight:700;">{{ p.name }}</span>
+<span style="font-size:12px;line-height:1.5;color:{{ theme.textSecondary }};">{{ p.desc }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="howitworks" class="lp-pad-lg" style="padding:120px 56px;background:{{ theme.bgAlt }};">
+<h2 class="lp-h2" style="font-size:32px;font-weight:800;text-align:center;margin:0 0 56px;">使い方</h2>
+<div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+<div style="width:260px;display:flex;flex-direction:column;gap:12px;">
+<span style="font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;color:{{ theme.accent }};">{{ s.n }}</span>
+<h3 style="margin:0;font-size:18px;font-weight:700;">{{ s.title }}</h3>
+<p style="margin:0;font-size:14px;color:{{ theme.textSecondary }};line-height:1.7;">{{ s.desc }}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section ref="{{ statsRef }}" class="lp-pad-lg" style="padding:120px 56px;">
+<div style="text-align:center;margin-bottom:72px;">
+<h2 class="lp-h2-lg" style="font-size:32px;font-weight:800;margin:0 0 16px;">聴けば聴くほど、<br class="lp-br">グラフが伸びていく。</h2>
+<p style="font-size:16px;color:{{ theme.textSecondary }};">あなたの音楽ライフが、そのままデータになる。</p>
+</div>
+<div style="display:flex;justify-content:center;align-items:flex-end;gap:20px;height:180px;margin-bottom:64px;">
+<sc-for list="{{ statBars }}" as="b" hint-placeholder-count="8">
+<div style="width:30px;height:{{ b.h }}%;background:{{ theme.accent }};border-radius:6px 6px 0 0;transform-origin:bottom;transition:transform 900ms cubic-bezier(0.22,1,0.36,1);transform:scaleY({{ statsScale }});"></div>
+</sc-for>
+</div>
+<div class="lp-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+<div style="text-align:center;padding:32px;background:{{ theme.card }};border-radius:16px;">
+<div class="lp-stat-num" style="font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;">{{ countPlaysFmt }}</div>
+<div style="font-size:13px;color:{{ theme.textSecondary }};margin-top:8px;">総再生回数</div>
+</div>
+<div style="text-align:center;padding:32px;background:{{ theme.card }};border-radius:16px;">
+<div class="lp-stat-num" style="font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;">{{ countCd }}%</div>
+<div style="font-size:13px;color:{{ theme.textSecondary }};margin-top:8px;">CD音源の比率</div>
+</div>
+<div style="text-align:center;padding:32px;background:{{ theme.card }};border-radius:16px;">
+<div class="lp-stat-num" style="font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;">{{ countGenre }}%</div>
+<div style="font-size:13px;color:{{ theme.textSecondary }};margin-top:8px;">トップジャンル: J-POP</div>
+</div>
+</div>
+</section>
+
+<section id="download" class="lp-pad-download" style="padding:96px 56px;text-align:center;">
+<div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+<a href="TestFlight Guide.dc.html" style="display:flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;background:{{ theme.accent }};color:#fff;text-decoration:none;font-weight:700;font-size:15px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9 22 2Z"></path></svg>TestFlightで試す</a>
+<span style="display:flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;border:1px solid {{ theme.border }};color:{{ theme.textSecondary }};font-weight:600;font-size:15px;opacity:0.7;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>近日公開 — App Store</span>
+<p style="font-size:13px;color:{{ theme.textSecondary }};margin:0;white-space:nowrap;">iOS 17以上 / Apple Music・CD取り込み音源 対応 / 日本語のみ</p>
+</div>
+</section>
+
+<footer class="lp-footer" style="padding:40px 56px;border-top:1px solid {{ theme.border }};">
+<div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+<span style="font-size:13px;color:{{ theme.textSecondary }};">© 2026 Makoto. MuLy</span>
+<div style="display:flex;gap:24px;align-items:center;">
+<a href="https://github.com/AgeFactory24/MusicLibraryApp" target="_blank" rel="noopener" style="font-size:13px;color:{{ theme.textSecondary }};text-decoration:none;display:flex;align-items:center;gap:6px;">
+<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+GitHub
+</a>
+<a href="Privacy.dc.html" style="font-size:13px;color:{{ theme.textSecondary }};text-decoration:none;">プライバシーポリシー</a>
+<a href="Support.dc.html" style="font-size:13px;color:{{ theme.textSecondary }};text-decoration:none;">お問い合わせ</a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  problemRef = React.createRef();
+  statsRef = React.createRef();
+
+  state = {
+    systemDark: false,
+    manualDark: null,
+    vis: { problem: false, stats: false },
+    count: { plays: 0, cd: 0, genre: 0 },
+    svgData: null
+  };
+
+  statTargets = { plays: 12480, cd: 42, genre: 38 };
+
+  componentDidMount() {
+    import('./personality-data.js').then((m) => this.setState({ svgData: m.PERSONALITY_SVGS }));
+    if (window.matchMedia) {
+      this.mql = window.matchMedia('(prefers-color-scheme: dark)');
+      this.setState({ systemDark: this.mql.matches });
+      this.mqlListener = (e) => this.setState({ systemDark: e.matches });
+      if (this.mql.addEventListener) this.mql.addEventListener('change', this.mqlListener);
+    }
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (entry.target === this.problemRef.current) {
+          this.setState((s) => ({ vis: { ...s.vis, problem: true } }));
+        }
+        if (entry.target === this.statsRef.current) {
+          this.setState((s) => ({ vis: { ...s.vis, stats: true } }));
+          this.animateCount();
+        }
+      });
+    }, { threshold: 0.35 });
+
+    [this.problemRef, this.statsRef].forEach((r) => {
+      if (r.current) this.observer.observe(r.current);
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.observer) this.observer.disconnect();
+    if (this.mql && this.mqlListener && this.mql.removeEventListener) this.mql.removeEventListener('change', this.mqlListener);
+  }
+
+  animateCount() {
+    const targets = this.statTargets;
+    const start = performance.now();
+    const dur = 1400;
+    if (this.state.count.plays >= targets.plays) return;
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      this.setState({
+        count: {
+          plays: Math.round(targets.plays * eased),
+          cd: Math.round(targets.cd * eased),
+          genre: Math.round(targets.genre * eased)
+        }
+      });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  toggleDark = () => {
+    this.setState((s) => ({ manualDark: !(s.manualDark ?? s.systemDark) }));
+  };
+
+  renderVals() {
+    const s = this.state;
+    const dark = s.manualDark ?? s.systemDark;
+
+    const theme = dark ? {
+      bg: '#0B0B0D', bgAlt: '#131316', card: '#1B1B1E', border: 'rgba(255,255,255,0.08)',
+      text: '#F5F5F7', textSecondary: '#9A9AA0', accent: '#FF5C82', accentSoft: 'rgba(255,92,130,0.15)'
+    } : {
+      bg: '#FFFFFF', bgAlt: '#FAFAFA', card: '#F5F5F7', border: 'rgba(0,0,0,0.08)',
+      text: '#111111', textSecondary: '#6B6B6F', accent: '#F03864', accentSoft: 'rgba(240,56,100,0.08)'
+    };
+
+    const features = [
+      { title: '統合再生履歴', desc: 'CDとApple Musicの再生回数をまとめて記録・分析。', bar1: 60, bar2: 100, bar3: 75, bar4: 45 },
+      { title: '12種パーソナリティ診断', desc: 'あなたの音楽の聴き方をタイプ診断。', bar1: 40, bar2: 90, bar3: 65, bar4: 55 },
+      { title: '月間・年間レポート', desc: 'Wrapped風ストーリーで1年を振り返る。', bar1: 80, bar2: 50, bar3: 100, bar4: 70 },
+      { title: 'QR音楽相性チェック', desc: '友達とQRをスキャンして相性診断。', bar1: 55, bar2: 75, bar3: 45, bar4: 90 },
+      { title: 'ホーム画面ウィジェット', desc: '今日の再生数を常に表示。', bar1: 70, bar2: 100, bar3: 60, bar4: 80 },
+      { title: 'シェアカード', desc: 'SNSにそのままシェアできるデザイン。', bar1: 90, bar2: 65, bar3: 80, bar4: 50 }
+    ];
+
+    const svgData = s.svgData;
+    const toDataUri = (svg) => svg ? 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg))) : '';
+    const personalityDefs = [
+      { key: 'legend', name: 'レジェンド', desc: '再生回数が突出した殿堂入りリスナー' },
+      { key: 'obsessed-fan', name: '推しが本気', desc: '特定アーティストを集中的にリピート' },
+      { key: 'single-focus', name: '一点集中型', desc: '一曲をとことん聴き込むタイプ' },
+      { key: 'heavy-rotator', name: 'ヘビロテ職人', desc: 'お気に入りを毎日ヘビーローテ' },
+      { key: 'explorer', name: '音楽探検家', desc: '新しいジャンル・曲を次々開拓' },
+      { key: 'loyal-listener', name: '固定リスナー', desc: '安定した好みでいつも同じ曲を再生' },
+      { key: 'growing-listener', name: '成長型リスナー', desc: '再生数が右肩上がりに増加中' },
+      { key: 'nostalgic', name: '懐古リスナー', desc: '昔の曲・CD音源をよく聴く' },
+      { key: 'genre-addict', name: 'ジャンル偏愛家', desc: '特定ジャンルに強くこだわる' },
+      { key: 'balanced', name: 'バランス型', desc: 'ジャンルも曲もバランスよく満遍なく' },
+      { key: 'collector', name: 'コレクター(CD)', desc: 'CD音源のコレクションが充実' },
+      { key: 'streaming-fan', name: 'サブスク派', desc: 'Apple Musicでの再生が中心' }
+    ];
+    const personalityTypes = personalityDefs.map((d) => ({
+      name: d.name,
+      desc: d.desc,
+      src: svgData ? toDataUri(svgData[d.key]) : ''
+    }));
+
+    const steps = [
+      { n: '01', title: 'ライブラリを読み込む', desc: 'Apple MusicとCD取り込み音源を読み込みます。' },
+      { n: '02', title: '自動で分析・記録', desc: '再生履歴を自動で分析し、記録します。' },
+      { n: '03', title: 'レポート/診断を見る', desc: '月間レポートやパーソナリティ診断を確認。' }
+    ];
+
+    const galleryItems = [
+      { label: '統合再生履歴' },
+      { label: 'パーソナリティ診断' },
+      { label: '月間レポート' },
+      { label: 'QR相性チェック' },
+      { label: 'ホームウィジェット' }
+    ];
+
+    const statBars = [45, 70, 55, 95, 60, 100, 80, 50].map((h) => ({ h }));
+
+    const fmt = (n) => n.toLocaleString('ja-JP');
+
+    return {
+      theme,
+      toggleDark: this.toggleDark,
+      problemRef: this.problemRef,
+      statsRef: this.statsRef,
+      problemScale: s.vis.problem ? 1 : 0,
+      statsScale: s.vis.stats ? 1 : 0,
+      countPlaysFmt: fmt(s.count.plays),
+      countCd: s.count.cd,
+      countGenre: s.count.genre,
+      features, personalityTypes, steps, galleryItems, statBars
+    };
+  }
+}
+</script>
+</body>
+</html>

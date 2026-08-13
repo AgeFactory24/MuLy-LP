@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f0eee9;font-family:"Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.pv-doc a{text-decoration:underline}
+.pv-doc table{width:100%;border-collapse:collapse;font-size:14px}
+.pv-doc th,.pv-doc td{text-align:left;padding:10px 12px;vertical-align:top}
+@media (max-width: 1024px) {
+  .lp-header{padding:14px 20px !important}
+  .lp-nav{gap:18px !important}
+  .lp-footer{padding:24px 24px !important}
+  .pv-section{padding:56px 24px !important}
+}
+@media (max-width: 480px) {
+  .lp-nav{display:none !important}
+  .lp-header{padding:12px 16px !important}
+  .pv-section{padding:40px 16px !important}
+  .pv-title{font-size:24px !important}
+  .pv-doc table,.pv-doc thead,.pv-doc tbody,.pv-doc th,.pv-doc td,.pv-doc tr{display:block}
+  .pv-doc th{display:none}
+  .pv-doc td{padding:4px 0;font-size:13px}
+  .pv-doc tr{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,0.08)}
+}
+</style>
+</helmet>
+
+<div style="width:100%;background:{{ theme.bg }};color:{{ theme.text }};font-family:'Hiragino Sans','Noto Sans JP',sans-serif;">
+
+<header class="lp-header" style="position:sticky;top:0;z-index:10;background:{{ theme.bg }};border-bottom:1px solid {{ theme.border }};padding:20px 56px;">
+<div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="MuLy LP.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:{{ theme.text }};">
+<img src="assets/appicon.png" alt="MuLy" style="width:32px;height:32px;border-radius:8px;">
+<span style="font-weight:700;font-size:17px;letter-spacing:-0.01em;">MuLy</span>
+</a>
+<div style="display:flex;align-items:center;gap:12px;">
+<span style="padding:9px 18px;border-radius:999px;background:{{ theme.accent }};color:#fff;font-size:13px;font-weight:600;">近日公開</span>
+</div>
+</div>
+</header>
+
+<section class="pv-section" style="padding:96px 56px;">
+<div class="pv-doc" style="max-width:720px;margin:0 auto;font-size:15px;line-height:1.9;color:{{ theme.text }};">
+
+<h1 class="pv-title" style="font-size:30px;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;">プライバシーポリシー</h1>
+<p style="color:{{ theme.textSecondary }};font-size:14px;margin:0 0 32px;">最終更新日: 2026年7月19日</p>
+
+<p style="margin:0 0 40px;">MuLy(以下「本アプリ」といいます)の運営者(以下「運営者」といいます)は、本アプリにおける利用者情報の取扱いについて、以下のとおりプライバシーポリシー(以下「本ポリシー」といいます)を定めます。</p>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">1. 運営者情報</h2>
+<ul style="margin:0;padding-left:20px;">
+<li>運営者: MuLy 開発者(個人開発)</li>
+<li>お問い合わせ先: muly.support@gmail.com</li>
+</ul>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">2. 基本方針</h2>
+<p style="margin:0 0 16px;">本アプリは、Apple Music のライブラリおよび CD 取り込み音源の再生履歴を統合して分析する個人利用向けアプリです。運営者は、利用者のプライバシーを尊重し、以下の方針で情報を取り扱います。</p>
+<ul style="margin:0;padding-left:20px;">
+<li style="margin-bottom:8px;"><strong>視聴履歴の詳細(いつ・何を聴いたか、実際の再生回数)は外部サーバーに送信しません。</strong>再生履歴の記録・分析はすべて利用者の端末内(Core Data)で完結します。</li>
+<li style="margin-bottom:8px;">フォロー機能等、利用者が明示的に有効化した機能に限り、必要最小限の情報(比率・要約情報)をサーバー(Firebase)に送信します。</li>
+<li>広告目的のトラッキング(IDFA の収集等)は行いません。</li>
+</ul>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">3. 取得する情報と取得方法</h2>
+
+<h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;">3.1 端末内でのみ処理する情報(外部送信なし)</h3>
+<div style="border:1px solid {{ theme.border }};border-radius:12px;overflow:hidden;margin-bottom:16px;">
+<table>
+<thead style="background:{{ theme.card }};">
+<tr><th>情報</th><th>取得方法</th><th>保存先</th></tr>
+</thead>
+<tbody>
+<tr style="border-top:1px solid {{ theme.border }};"><td>Apple Music ライブラリ情報(曲名・アーティスト名・アルバム名・ジャンル・再生回数・追加日等)</td><td>MediaPlayer(<code>MPMediaQuery</code>)</td><td>端末内 Core Data</td></tr>
+<tr style="border-top:1px solid {{ theme.border }};"><td>詳細な再生履歴(再生日時等)</td><td>アプリ内での差分検知により記録</td><td>端末内 Core Data</td></tr>
+<tr style="border-top:1px solid {{ theme.border }};"><td>アプリの動作ログ</td><td>アプリ内部処理</td><td>端末内(<code>AppLogStore</code>。3日または1000件を超えると自動的に古いものから削除)</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin:0 0 16px;">これらの情報は、本アプリの統計・パーソナリティ判定・レポート表示などの機能を提供する目的でのみ使用され、運営者を含む第三者に送信されることはありません(ただし後述のフォロー機能で利用者が明示的に「公開する」と設定した範囲を除きます)。</p>
+
+<h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;">3.2 Apple Music(Apple 社)と連携して取得する情報</h3>
+<p style="margin:0 0 12px;">本アプリのカタログ再生(サブスクリプションでライブラリに追加せず再生した楽曲)を把握するため、MusicKit を通じて Apple 社のサーバーと通信します。</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>Apple Music の再生履歴 API(<code>recent/played</code>)へのアクセス</li>
+<li>Apple Music サブスクリプション状況の確認</li>
+<li>アーティスト名によるカタログ検索</li>
+</ul>
+<p style="margin:0 0 16px;">これらの通信には Apple 社が定める規約・プライバシーポリシーが適用されます。取得した情報は端末内での統計処理にのみ利用します。</p>
+
+<h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;">3.3 フォロー機能を利用する場合に取得・送信する情報</h3>
+<p style="margin:0 0 16px;">フォロー機能は任意の機能であり、利用するには Sign in with Apple によるサインインと ID(ハンドル)の登録が必要です。この機能を利用しない場合、本項の情報は一切送信されません。</p>
+
+<p style="margin:0 0 8px;font-weight:700;">(a) 認証情報(Sign in with Apple)</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>Apple から発行される識別子</li>
+<li>氏名(初回サインイン時のみ Apple 側で提供された場合。利用者は非公開に設定できます)</li>
+<li>メールアドレス(Apple の「メールを非公開」機能を利用している場合は Apple のリレーアドレス)</li>
+</ul>
+
+<p style="margin:0 0 8px;font-weight:700;">(b) プロフィール情報</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>ID(ハンドル)、表示名、プロフィールアイコン画像</li>
+</ul>
+
+<p style="margin:0 0 8px;font-weight:700;">(c) 公開設定に応じて共有される再生傾向の要約情報</p>
+<p style="margin:0 0 12px;">利用者が「共有する」と設定した期間(1週間 / 1ヶ月 / 1年 / 全期間)についてのみ、以下を Firebase(Firestore・Storage)に送信し、承認済みのフォロワーに公開します。</p>
+<ul style="margin:0 0 12px;padding-left:20px;">
+<li>当該期間の再生回数TOP10(楽曲名・アーティスト名・アルバム名・ジャケット画像)</li>
+<li>音楽パーソナリティの診断結果とその判定理由(自然文。比率の言及はありますが実際の再生回数は含みません)</li>
+<li>よく聴くジャンルの比率(実数の再生回数は含みません)</li>
+<li>CD 音源の再生比率、TOP アーティスト・TOP 楽曲の集中度(いずれも比率のみ)</li>
+</ul>
+<div style="padding:14px 16px;border-radius:10px;background:{{ theme.card }};border-left:3px solid {{ theme.accent }};margin:0 0 16px;font-size:14px;color:{{ theme.textSecondary }};">個々の楽曲の実際の再生回数、再生日時、ライブラリ全体の一覧は、この機能によっても外部へ送信されることはありません。</div>
+
+<p style="margin:0 0 8px;font-weight:700;">(d) フォロー関係情報</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>フォローリクエストの送信・承認履歴、フォロー中・フォロワーの関係(ID・日時)</li>
+</ul>
+
+<p style="margin:0 0 8px;font-weight:700;">(e) プッシュ通知トークン</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>フォローリクエスト受信通知を送信するため、Firebase Cloud Messaging のトークンを取得します。</li>
+</ul>
+
+<h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;">3.4 アプリの品質改善のために取得する情報</h3>
+<p style="margin:0 0 8px;font-weight:700;">(a) クラッシュ・エラー情報(Firebase Crashlytics)</p>
+<p style="margin:0 0 12px;">アプリの異常終了時の診断のため、以下を自動的に送信します。</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>クラッシュ発生時のスタックトレース</li>
+<li>端末機種・OS バージョン・アプリバージョン</li>
+<li>アプリ内部で発生した非致命的エラーの種別・件数(曲名・アーティスト名などの視聴内容は含みません)</li>
+</ul>
+<p style="margin:0 0 8px;font-weight:700;">(b) 利用状況情報(Firebase Analytics)</p>
+<p style="margin:0 0 12px;">アプリの改善のため、以下を自動的に送信します。</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>画面の表示(どの画面が開かれたか)</li>
+<li>主要機能の利用有無(フォローリクエストの送信・承認、相性チェックの実施、共有シートの利用、パーソナリティ探索モードの利用等)</li>
+</ul>
+<p style="margin:0 0 16px;">これらのイベントには、曲名・アーティスト名・再生回数などの視聴内容や、フォロー相手を特定できる情報は含まれません。また、広告識別子(IDFA)は収集しない設定にしており、App Tracking Transparency の許可は求めません。</p>
+
+<h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;">3.5 その他の外部サービスとの通信</h3>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li style="margin-bottom:8px;"><strong>Deezer Search API / iTunes Search API</strong>: アーティスト画像・アルバムジャケット画像を取得するため、アーティスト名・アルバム名等を検索クエリとして送信する場合があります(API キー不要の公開検索 API)。</li>
+<li><strong>Instagram Stories への共有</strong>: 利用者が「Instagram Story に共有」を選択した場合、画像は端末内のペーストボードを介して Instagram アプリに渡されます。この操作自体で運営者や本アプリからネットワーク経由の送信は発生しません(共有後の取扱いは Instagram 側のプライバシーポリシーに従います)。</li>
+</ul>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">4. 情報の利用目的</h2>
+<p style="margin:0 0 12px;">取得した情報は、以下の目的にのみ利用します。</p>
+<ol style="margin:0;padding-left:20px;">
+<li style="margin-bottom:8px;">本アプリの機能(再生履歴の統合表示、統計、パーソナリティ判定、月次・年間レポート等)の提供</li>
+<li style="margin-bottom:8px;">フォロー機能におけるプロフィール表示・ランキング共有・相性チェック・プッシュ通知の送信</li>
+<li style="margin-bottom:8px;">不具合の発見・修正、アプリの品質改善</li>
+<li style="margin-bottom:8px;">利用状況の把握によるアプリの改善検討</li>
+<li>利用者からのお問い合わせへの対応</li>
+</ol>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">5. 第三者への提供・業務委託</h2>
+<p style="margin:0 0 16px;">運営者は、法令に基づく場合を除き、取得した情報を無断で第三者に提供しません。ただし、本アプリの提供にあたり、以下のサービス提供者に情報の取扱いを委託します。</p>
+<div style="border:1px solid {{ theme.border }};border-radius:12px;overflow:hidden;margin-bottom:16px;">
+<table>
+<thead style="background:{{ theme.card }};">
+<tr><th>提供者</th><th>委託内容</th></tr>
+</thead>
+<tbody>
+<tr style="border-top:1px solid {{ theme.border }};"><td>Apple Inc.</td><td>MusicKit によるカタログ検索・再生履歴取得、Sign in with Apple 認証、Apple Push Notification service によるプッシュ通知配信</td></tr>
+<tr style="border-top:1px solid {{ theme.border }};"><td>Google LLC(Firebase)</td><td>Authentication(認証)、Firestore(データ保存)、Cloud Functions(フォロー関連処理)、Storage(画像保存)、Cloud Messaging(プッシュ通知)、Crashlytics(クラッシュ収集)、Analytics(利用状況分析)</td></tr>
+<tr style="border-top:1px solid {{ theme.border }};"><td>Deezer</td><td>アーティスト画像の検索</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin:0 0 8px;">これらの委託先における情報の取扱いには、各社が定めるプライバシーポリシーが適用されます。</p>
+<ul style="margin:0;padding-left:20px;">
+<li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener" style="color:{{ theme.accent }};">Apple プライバシーポリシー</a></li>
+<li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:{{ theme.accent }};">Google プライバシーポリシー</a></li>
+<li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener" style="color:{{ theme.accent }};">Firebase のデータ処理に関する情報</a></li>
+</ul>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">6. 情報の保存期間・削除</h2>
+<ul style="margin:0;padding-left:20px;">
+<li style="margin-bottom:8px;">端末内に保存された再生履歴・ライブラリ情報は、本アプリをアンインストールすることで削除されます。設定画面の「履歴リセット」からも削除可能です。</li>
+<li style="margin-bottom:8px;">アプリの動作ログ(<code>AppLogStore</code>)は、3日経過または1000件を超えると自動的に古いものから削除されます。</li>
+<li style="margin-bottom:8px;">フォロー機能で Firebase に保存した情報(プロフィール、共有スナップショット、フォロー関係等)の削除をご希望の場合は、本ポリシー末尾のお問い合わせ先までご連絡ください。運営者にて速やかに削除対応いたします。</li>
+<li>フォローの解除・フォロワーの削除・共有設定の停止は、アプリ内の設定画面またはフォロー画面からいつでも行うことができます。</li>
+</ul>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">7. 利用者の権利</h2>
+<p style="margin:0 0 12px;">利用者は、以下をアプリ内の操作でいつでも行うことができます。</p>
+<ul style="margin:0 0 16px;padding-left:20px;">
+<li>フォロー機能のサインアウト</li>
+<li>フォローの解除、フォロワーの削除</li>
+<li>各期間の共有設定(公開する／しない)の変更</li>
+<li>通知(ローカル通知)の ON / OFF 切替</li>
+<li>再生履歴データのリセット</li>
+</ul>
+<p style="margin:0;">上記に加え、保存されている情報の開示・訂正・削除等をご希望の場合は、お問い合わせ先までご連絡ください。</p>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">8. 子供のプライバシー</h2>
+<p style="margin:0;">本アプリは 13 歳未満の児童を主な対象としていません。運営者が 13 歳未満の児童から意図的に個人情報を収集することはありません。</p>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">9. セキュリティ</h2>
+<p style="margin:0;">取得した情報は、Firebase の提供するセキュリティ機能(アクセス制御ルール、認証されたユーザーのみへのアクセス許可等)により保護されます。フォロー機能で共有される情報は、承認されたフォロワーのみが閲覧可能です。</p>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">10. 本ポリシーの変更</h2>
+<p style="margin:0;">運営者は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、本アプリ内または本ドキュメントの公開先に掲示した時点から効力を生じるものとします。重要な変更を行う場合は、アプリ内通知等で周知するよう努めます。</p>
+
+<h2 style="font-size:20px;font-weight:800;margin:48px 0 16px;">11. お問い合わせ</h2>
+<p style="margin:0 0 16px;">本ポリシーに関するお問い合わせは、以下のお問い合わせフォームまでお願いいたします。</p>
+<a href="Support.dc.html" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;background:{{ theme.accent }};color:#fff;text-decoration:none;font-weight:700;font-size:14px;margin-bottom:40px;">お問い合わせフォームへ</a>
+
+</div>
+</section>
+
+<footer class="lp-footer" style="padding:40px 56px;border-top:1px solid {{ theme.border }};">
+<div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+<span style="font-size:13px;color:{{ theme.textSecondary }};">© 2026 Makoto. MuLy</span>
+<div style="display:flex;gap:24px;align-items:center;">
+<a href="https://github.com/AgeFactory24/MusicLibraryApp" target="_blank" rel="noopener" style="font-size:13px;color:{{ theme.textSecondary }};text-decoration:none;display:flex;align-items:center;gap:6px;">
+<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+GitHub
+</a>
+<span style="font-size:13px;color:{{ theme.accent }};font-weight:700;">プライバシーポリシー</span>
+<a href="Support.dc.html" style="font-size:13px;color:{{ theme.textSecondary }};text-decoration:none;">お問い合わせ</a>
+</div>
+</div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { systemDark: false };
+
+  componentDidMount() {
+    if (window.matchMedia) {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      this.setState({ systemDark: mql.matches });
+      if (mql.addEventListener) mql.addEventListener('change', (e) => this.setState({ systemDark: e.matches }));
+    }
+  }
+
+  renderVals() {
+    const dark = this.state.systemDark;
+    const theme = dark ? {
+      bg: '#0B0B0D', bgAlt: '#131316', card: '#1B1B1E', border: 'rgba(255,255,255,0.08)',
+      text: '#F5F5F7', textSecondary: '#9A9AA0', accent: '#FF5C82', accentSoft: 'rgba(255,92,130,0.15)'
+    } : {
+      bg: '#FFFFFF', bgAlt: '#FAFAFA', card: '#F5F5F7', border: 'rgba(0,0,0,0.08)',
+      text: '#111111', textSecondary: '#6B6B6F', accent: '#F03864', accentSoft: 'rgba(240,56,100,0.08)'
+    };
+    return { theme };
+  }
+}
+
+</script>
+</body>
+</html>

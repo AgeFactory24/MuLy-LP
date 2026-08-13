@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="一点集中型">
+  <defs>
+    <clipPath id="focus-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="focus-blur16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"></feGaussianBlur></filter>
+    <filter id="focus-blur28" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"></feGaussianBlur></filter>
+    <filter id="focus-blur6" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter>
+    <filter id="focus-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#21E0B5" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="focus-glow">
+      <stop offset="0%" stop-color="#22E1B6" stop-opacity="0.5"></stop>
+      <stop offset="65%" stop-color="#22E1B6" stop-opacity="0"></stop>
+      <stop offset="100%" stop-color="#22E1B6" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="focus-neonTint">
+      <stop offset="0%" stop-color="#21E0B5" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#21E0B5" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <g filter="url(#focus-shadow)">
+    <g clip-path="url(#focus-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#focus-neonTint)"></circle>
+      <g id="focus-art"></g>
+    </g>
+  </g>
+  
+</svg>

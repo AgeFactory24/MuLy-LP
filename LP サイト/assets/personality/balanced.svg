@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="バランス型">
+  <defs>
+    <clipPath id="bal-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="bal-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#9E6BFF" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="bal-neonTint">
+      <stop offset="0%" stop-color="#9E6BFF" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#9E6BFF" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <g filter="url(#bal-shadow)">
+    <g clip-path="url(#bal-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#bal-neonTint)"></circle>
+      <g id="bal-art" style="mix-blend-mode:screen"></g>
+    </g>
+  </g>
+  
+</svg>

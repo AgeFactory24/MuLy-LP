@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="ヘビロテ職人">
+  <defs>
+    <clipPath id="heavy-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="heavy-blur16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"></feGaussianBlur></filter>
+    <filter id="heavy-blur28" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"></feGaussianBlur></filter>
+    <filter id="heavy-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#B366FF" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="heavy-glow">
+      <stop offset="0%" stop-color="#B265FF" stop-opacity="0"></stop>
+      <stop offset="55%" stop-color="#B265FF" stop-opacity="0.18"></stop>
+      <stop offset="75%" stop-color="#B265FF" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="heavy-neonTint">
+      <stop offset="0%" stop-color="#B366FF" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#B366FF" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <g filter="url(#heavy-shadow)">
+    <g clip-path="url(#heavy-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#heavy-neonTint)"></circle>
+      <g id="heavy-art"></g>
+    </g>
+  </g>
+  
+</svg>

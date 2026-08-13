@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="サブスク派">
+  <defs>
+    <clipPath id="sub-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="sub-blur16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"></feGaussianBlur></filter>
+    <filter id="sub-blur28" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"></feGaussianBlur></filter>
+    <filter id="sub-blur6" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter>
+    <filter id="sub-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FA243D" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="sub-glow">
+      <stop offset="0%" stop-color="#FA243C" stop-opacity="0"></stop>
+      <stop offset="40%" stop-color="#FA243C" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="#FA243C" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="sub-neonTint">
+      <stop offset="0%" stop-color="#FA243D" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#FA243D" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <g filter="url(#sub-shadow)">
+    <g clip-path="url(#sub-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#sub-neonTint)"></circle>
+      <g id="sub-art"></g>
+    </g>
+  </g>
+  
+</svg>

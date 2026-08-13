@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="音楽探検家">
+  <defs>
+    <clipPath id="expl-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="expl-blur16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"></feGaussianBlur></filter>
+    <filter id="expl-blur28" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"></feGaussianBlur></filter>
+    <filter id="expl-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#5CB8FF" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="expl-glow">
+      <stop offset="0%" stop-color="#A06BFF" stop-opacity="0.35"></stop>
+      <stop offset="70%" stop-color="#FF6BD2" stop-opacity="0.05"></stop>
+      <stop offset="100%" stop-color="#FF6BD2" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="expl-neonTint">
+      <stop offset="0%" stop-color="#5CB8FF" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#5CB8FF" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <g filter="url(#expl-shadow)">
+    <g clip-path="url(#expl-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#expl-neonTint)"></circle>
+      <g id="expl-art"></g>
+    </g>
+  </g>
+  
+</svg>

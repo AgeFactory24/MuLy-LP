@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="コレクター(CD)">
+  <defs>
+    <clipPath id="coll-clip"><circle cx="120" cy="120" r="120"></circle></clipPath>
+    <filter id="coll-blur16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6"></feGaussianBlur></filter>
+    <filter id="coll-blur28" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"></feGaussianBlur></filter>
+    <filter id="coll-blur6" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter>
+    <filter id="coll-shadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#C269FF" flood-opacity="0.6"></feDropShadow>
+    </filter>
+    <radialGradient id="coll-glow">
+      <stop offset="0%" stop-color="#C168FF" stop-opacity="0"></stop>
+      <stop offset="40%" stop-color="#C168FF" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="#C168FF" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="coll-neonTint">
+      <stop offset="0%" stop-color="#C269FF" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#C269FF" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="coll-beamGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAB6FF" stop-opacity="0"></stop>
+      <stop offset="50%" stop-color="#EAB6FF" stop-opacity="0.7"></stop>
+      <stop offset="100%" stop-color="#EAB6FF" stop-opacity="0"></stop>
+    </linearGradient>
+  </defs>
+  <g filter="url(#coll-shadow)">
+    <g clip-path="url(#coll-clip)">
+      <circle cx="120" cy="120" r="120" fill="#000"></circle>
+      <circle cx="120" cy="120" r="120" fill="url(#coll-neonTint)"></circle>
+      <g id="coll-art"></g>
+    </g>
+  </g>
+  
+</svg>
