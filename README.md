@@ -1,12 +1,20 @@
-# MuLy LP
+# MuLy-LP
 
-MuLyの公式サイトとお問い合わせFunctionを管理するリポジトリ。
+MuLyの公式Webサイト、法務ページ、Universal Links、お問い合わせFunctionを管理するリポジトリです。
 
-- 公式URL: https://muly.club/
-- Firebaseプロジェクト: `musiclibrary-lp`
-- Hostingサイト: `musiclibrary-lp`
+- GitHub: https://github.com/AgeFactory24/MuLy-LP
+- 公式サイト: https://muly.club/
 - Hosting配信元: `hosting/public/`
 - お問い合わせFunction: `functions/src/index.ts`
+
+## Firebase
+
+Firebase上の識別子は、リポジトリ名とは別に既存の値を継続して使用しています。
+
+- FirebaseプロジェクトID: `musiclibrary-lp`
+- HostingサイトID: `musiclibrary-lp`
+
+これらはFirebaseの内部識別子であり、サービス名とGitHubリポジトリ名は `MuLy` / `MuLy-LP` です。
 
 ## デプロイ
 
