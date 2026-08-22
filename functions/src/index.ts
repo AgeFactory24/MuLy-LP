@@ -14,7 +14,7 @@ const gmailAppPassword = defineSecret("GMAIL_APP_PASSWORD");
 
 // SMTP認証(送信元)アカウント。実際の宛先はCONTACT_TO。
 const SMTP_USER = "mkmk.0824f0824@gmail.com";
-const CONTACT_TO = "muly.support@gmail.com";
+const CONTACT_TO = "support@muly.club";
 
 const CATEGORY_LABELS: Record<string, string> = {
   bug: "不具合報告",
