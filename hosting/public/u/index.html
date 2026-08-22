@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>音楽でつながろう｜MuLy</title>
+<meta name="description" content="MuLyでプロフィールを開き、音楽ランキングや相性をチェックしましょう。">
+<link rel="canonical" href="https://muly.club/u/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://muly.club/u/">
+<meta property="og:title" content="音楽でつながろう｜MuLy">
+<meta property="og:description" content="MuLyでプロフィールを開き、音楽ランキングや相性をチェックしましょう。">
+<meta property="og:image" content="https://muly.club/assets/appicon.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="MuLyアプリアイコン">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="音楽でつながろう｜MuLy">
+<meta name="twitter:description" content="MuLyでプロフィールを開き、音楽ランキングや相性をチェックしましょう。">
+<meta name="twitter:image" content="https://muly.club/assets/appicon.png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #101114;
+    --card: #1a1b20;
+    --text: #ffffff;
+    --sub: rgba(255,255,255,0.55);
+    --accent: #ec4899;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    padding: 24px;
+  }
+  .card {
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+  }
+  .icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #ec4899, #8b7cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 16px 40px rgba(236,72,153,0.3);
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 8px;
+  }
+  .handle {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  p {
+    color: var(--sub);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 28px;
+  }
+  .cta {
+    display: block;
+    background: var(--accent);
+    color: #101114;
+    font-weight: 800;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 26px rgba(236,72,153,0.3);
+  }
+  .note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🎵</div>
+    <h1>MuLyで<br><span class="handle" id="handle">@...</span>さんの<br>プロフィールを見る</h1>
+    <p>MuLyは、Apple MusicとCD音源の再生履歴を統合して分析するアプリです。フォロー機能で、お互いのリスニングランキングを見せ合えます。</p>
+    <!--
+      公開前の確認事項：App Storeでの配信開始後、下記リンクを実際のApp Store URLに差し替えてください。
+      アプリが既にインストールされている端末では、このページが表示される前にUniversal Linksが
+      アプリを直接開くため、このページはアプリ未インストールの相手にのみ表示されます。
+    -->
+    <a class="cta" href="https://apps.apple.com/">App Storeで開く</a>
+    <div class="note">MuLy をインストール後、もう一度このリンクを開くとプロフィールに移動します</div>
+  </div>
+  <script>
+    var parts = window.location.pathname.split('/').filter(Boolean);
+    var handle = parts.length >= 2 ? parts[1] : null;
+    if (handle) {
+      document.getElementById('handle').textContent = '@' + decodeURIComponent(handle);
+    }
+  </script>
+</body>
+</html>

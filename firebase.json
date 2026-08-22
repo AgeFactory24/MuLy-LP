@@ -1,4 +1,21 @@
 {
+  "hosting": [
+    {
+      "site": "musiclibrary-lp",
+      "public": "hosting/public",
+      "cleanUrls": true,
+      "ignore": ["firebase.json", "**/.git/**"],
+      "headers": [
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }]
+        }
+      ],
+      "rewrites": [
+        { "source": "/u/**", "destination": "/u/index.html" }
+      ]
+    }
+  ],
   "functions": [
     {
       "source": "functions",
@@ -8,4 +25,3 @@
     }
   ]
 }
-
