@@ -157,7 +157,9 @@
     .to(".w3", { yPercent: -20, rotate: -4 }, 0)
     .to(".w4", { yPercent: -50, rotate: 10 }, 0)
     .to(".hero-phone", { yPercent: -18, rotate: 10 }, 0)
-    .to(".disc-cd", { scale: 1.2 }, 0)
+    // A restored scroll position can initialize this while the intro scale is 0.
+    // Use the normal size explicitly, without interrupting the entrance animation.
+    .fromTo(".disc-cd", { scale: 1 }, { scale: 1.2, immediateRender: false }, 0)
     .to(".hero-copy", { yPercent: 12, opacity: 0.2 }, 0);
 
   // CDs spin; scrolling speeds them up (and reverses when scrolling up)
