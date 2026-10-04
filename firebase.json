@@ -7,6 +7,10 @@
       "ignore": ["firebase.json", "**/.git/**"],
       "headers": [
         {
+          "regex": "^/(|index\\.html|support(\\.html)?/?|privacy(/.*)?|terms(/.*)?|commercial-transactions(/.*)?|legal\\.css)$",
+          "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+        },
+        {
           "source": "/.well-known/apple-app-site-association",
           "headers": [{ "key": "Content-Type", "value": "application/json" }]
         }
