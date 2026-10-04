@@ -21,11 +21,12 @@ h1,h2,h3,p { margin: 0; }
 .skip { position: absolute; top: 8px; left: -9999px; padding: 8px 16px; background: var(--ink); color: white; z-index: 20; }
 .skip:focus { left: 8px; }
 .site-header { position: sticky; top: 0; z-index: 10; height: 64px; display: flex; justify-content: space-between; background: var(--paper); border-bottom: 1px solid var(--ink); }
-.site-logo { display: flex; align-items: center; gap: 10px; padding: 0 var(--gut); border-right: 1px solid var(--ink); font-family: var(--display); font-size: 22px; font-weight: 800; text-decoration: none; }
+.site-logo { display: flex; flex: 0 0 auto; align-items: center; gap: 10px; padding: 0 var(--gut); border-left: 1px solid var(--ink); font-family: var(--display); font-size: 22px; font-weight: 800; text-decoration: none; }
 .site-logo img { border-radius: 6px; }
-.page-nav { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--ink); }
-.page-nav a { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-right: 1px solid var(--line); text-decoration: none; font-size: 13px; font-weight: 700; }
+.page-nav { display: flex; flex: 1; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; }
+.page-nav a { display: flex; flex: 1 0 auto; align-items: center; justify-content: center; white-space: nowrap; gap: 14px; padding: 16px 20px; border-right: 1px solid var(--line); text-decoration: none; font-size: 13px; font-weight: 700; }
 .page-nav a:last-child { border-right: 0; }
+.page-nav a:focus-visible { outline-offset: -4px; }
 .page-nav a[aria-current] { background: var(--pink); color: var(--ink); }
 .page-main { max-width: 1240px; margin: auto; padding: 0 var(--gut) 100px; }
 .page-hero { position: relative; padding: 60px 0 44px; border-bottom: 1px solid var(--ink); margin-bottom: 44px; }
@@ -110,10 +111,9 @@ h1,h2,h3,p { margin: 0; }
 }
 @media (max-width: 640px) {
   .site-header { height: 56px; }
-  .site-logo { font-size: 20px; }
-  .page-nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .page-nav a { font-size: 11px; padding: 12px; }
-  .page-nav a:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .site-logo { gap: 7px; padding: 0 12px; font-size: 18px; }
+  .site-logo img { width: 24px; height: 24px; }
+  .page-nav a { font-size: 12px; padding: 12px 16px; }
   .page-hero { padding: 36px 0 28px; margin-bottom: 28px; }
   .page-display { font-size: clamp(36px,10.3vw,64px); margin-bottom: 18px; }
   .document-layout,.contact-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
