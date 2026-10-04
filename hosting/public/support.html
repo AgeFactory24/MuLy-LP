@@ -147,7 +147,7 @@
 <div class="attachment-list">
 <sc-for list="{{ attachments }}" as="attachment">
 <div class="attachment-item">
-<img src="{{ attachment.preview }}" alt="{{ attachment.name }}" width="64" height="64"/>
+<img sc-camel-src="{{ attachment.preview }}" alt="{{ attachment.name }}" width="64" height="64"/>
 <div><p class="attachment-name">{{ attachment.name }}</p><p class="attachment-size">{{ attachment.sizeLabel }}</p></div>
 <button type="button" class="attachment-remove" onClick="{{ attachment.remove }}" disabled="{{ attachmentBusy }}" aria-label="{{ attachment.removeLabel }}">削除</button>
 </div>
