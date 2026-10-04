@@ -49,7 +49,27 @@ firebase deploy --only hosting --project musiclibrary-lp
 firebase deploy --only functions --project musiclibrary-lp
 ```
 
-## お問い合わせの添付画像
+## お問い合わせ
+
+### reCAPTCHA / App Check
+
+お問い合わせは `hosting/public/support.html` のreCAPTCHA v3とFirebase App Checkで認証する。
+reCAPTCHAキー「MusicLibrary LP」の許可ドメインには、現在の配信先を登録する。
+
+- `muly.club`（`www.muly.club`も含む）
+- `musiclibrary-lp.web.app`
+- `musiclibrary-lp.firebaseapp.com`
+
+この許可リストはGoogle Cloud側の設定であり、Hostingのデプロイでは更新されない。
+ドメインを変更したら、Functionの `ALLOWED_ORIGINS` と併せて確認する。
+2026-10-04に旧配信先だけだった許可リストへ上記3ドメインを追加した。
+App Checkの検証とreCAPTCHAのドメイン検証は有効のまま維持する。
+
+認証だけを確認する場合は、本番ページで取得したApp Checkトークン付きで空のJSONを
+`submitContact`へPOSTする。`400 {"error":"invalid email"}`なら認証は通過しており、
+メール送信前の入力検証で停止する。トークンなしの同じリクエストは401になる。
+
+### 添付画像
 
 フォームはPNG・JPEG・WebPを最大3枚、1枚5 MiB・合計10 MiBまで受け付ける。
 画像は送信時にJSON/base64でApp Check付きのFunctionへ渡し、
