@@ -17,7 +17,6 @@ export function pageHeader(currentHref) {
   return `<a class="skip" href="#main">本文へスキップ</a>
 <header class="site-header">
   <a class="site-logo" href="/" aria-label="MuLy トップへ"><img src="/assets/img/app-icon-512.png" alt="" width="28" height="28"><span>MuLy</span></a>
-  <a class="back-home" href="/">トップへ戻る <span aria-hidden="true">↗</span></a>
 </header>
 <nav class="page-nav" aria-label="サポート・法務ページ">
 ${pageLinks.map(link => `<a href="${link.href}"${link.href === currentHref ? ' aria-current="page"' : ''}><span class="mono">${link.code}</span>${link.label}</a>`).join("\n")}
