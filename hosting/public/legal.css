@@ -21,7 +21,7 @@ h1,h2,h3,p { margin: 0; }
 .skip { position: absolute; top: 8px; left: -9999px; padding: 8px 16px; background: var(--ink); color: white; z-index: 20; }
 .skip:focus { left: 8px; }
 .site-header { position: sticky; top: 0; z-index: 10; height: 64px; display: flex; justify-content: space-between; background: var(--paper); border-bottom: 1px solid var(--ink); }
-.site-logo { display: flex; flex: 0 0 auto; align-items: center; gap: 10px; padding: 0 var(--gut); border-left: 1px solid var(--ink); font-family: var(--display); font-size: 22px; font-weight: 800; text-decoration: none; }
+.site-logo { display: flex; flex: 0 0 auto; align-items: center; gap: 10px; padding: 0 var(--gut); border-right: 1px solid var(--ink); font-family: var(--display); font-size: 22px; font-weight: 800; text-decoration: none; }
 .site-logo img { border-radius: 6px; }
 .page-nav { display: flex; flex: 1; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; }
 .page-nav a { display: flex; flex: 1 0 auto; align-items: center; justify-content: center; white-space: nowrap; gap: 14px; padding: 16px 20px; border-right: 1px solid var(--line); text-decoration: none; font-size: 13px; font-weight: 700; }
