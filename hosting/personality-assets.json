@@ -1,0 +1,19 @@
+{
+  "figmaFile": "https://www.figma.com/design/kqdmdo4oDjTMuBaeCuHcw5/MuLy-Personality-Characters?node-id=494-118",
+  "variant": "Light / Transparent",
+  "format": "SVG",
+  "updated": "2026-10-04",
+  "nodes": {
+    "devoted": "494:120",
+    "pioneer": "494:234",
+    "purist": "494:282",
+    "omnivore": "494:357",
+    "classic": "494:505",
+    "newRelease": "494:595",
+    "albumWhole": "494:686",
+    "singleTrack": "494:763",
+    "owner": "494:845",
+    "drifter": "494:911"
+  },
+  "sourceDirectory": "source-assets/stars"
+}

@@ -6,6 +6,7 @@ import * as nodemailer from "nodemailer";
 import {initializeApp} from "firebase-admin/app";
 import {getAppCheck} from "firebase-admin/app-check";
 import type {Request} from "firebase-functions/v2/https";
+import {parseAttachments} from "./contact-attachments";
 
 initializeApp();
 setGlobalOptions({maxInstances: 10});
@@ -27,6 +28,10 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // お問い合わせフォームを載せるサイトのオリジン。
 const ALLOWED_ORIGINS = [
+  "https://muly.club",
+  "https://www.muly.club",
+  "https://musiclibrary-lp.web.app",
+  "https://musiclibrary-lp.firebaseapp.com",
   "https://muly.web.app",
   "https://muly.firebaseapp.com",
 ];
@@ -38,6 +43,7 @@ interface ContactPayload {
   appVersion?: string;
   iosVersion?: string;
   message?: string;
+  attachments?: unknown;
 }
 
 /**
@@ -59,10 +65,9 @@ async function isVerifiedAppCheckRequest(req: Request): Promise<boolean> {
 }
 
 export const submitContact = onRequest(
-  {secrets: [gmailAppPassword]},
+  {secrets: [gmailAppPassword], concurrency: 5, memory: "512MiB"},
   async (req, res) => {
-    // Hostingは別プロジェクト(musiclibrary-app)のmulyサイトにあるため
-    // rewriteを跨げず、ページから直接このURLを叩く。許可オリジンは明示列挙する。
+    // ページからFunctionを直接呼ぶため、許可オリジンを明示する。
     const origin = req.header("Origin") ?? "";
     if (ALLOWED_ORIGINS.includes(origin)) {
       res.set("Access-Control-Allow-Origin", origin);
@@ -71,7 +76,8 @@ export const submitContact = onRequest(
 
     if (req.method === "OPTIONS") {
       res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-      res.set("Access-Control-Allow-Headers", "Content-Type, X-Firebase-AppCheck");
+      res.set("Access-Control-Allow-Headers",
+        "Content-Type, X-Firebase-AppCheck");
       res.set("Access-Control-Max-Age", "3600");
       res.status(204).send("");
       return;
@@ -79,6 +85,12 @@ export const submitContact = onRequest(
 
     if (req.method !== "POST") {
       res.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    // Base64 encoding expands 10 MiB of images to about 14 MiB of JSON.
+    if (req.rawBody.length > 15 * 1024 * 1024) {
+      res.status(413).json({error: "request too large"});
       return;
     }
 
@@ -103,8 +115,16 @@ export const submitContact = onRequest(
       res.status(400).json({error: "invalid category"});
       return;
     }
-    if (!message) {
+    if (!message || message.length > 10000) {
       res.status(400).json({error: "invalid message"});
+      return;
+    }
+
+    let attachments;
+    try {
+      attachments = parseAttachments(body.attachments);
+    } catch {
+      res.status(400).json({error: "invalid attachments"});
       return;
     }
 
@@ -134,6 +154,7 @@ export const submitContact = onRequest(
         replyTo: email,
         subject: `[MuLy] ${CATEGORY_LABELS[category]}からのお問い合わせ`,
         text: bodyLines.join("\n"),
+        attachments,
       });
       res.status(200).json({ok: true});
     } catch (err) {

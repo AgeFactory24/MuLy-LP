@@ -19,34 +19,57 @@
 <meta name="twitter:title" content="プライバシーポリシー | MuLy">
 <meta name="twitter:description" content="MuLyにおける利用者情報の取り扱いとプライバシーポリシーをご案内します。">
 <meta name="twitter:image" content="https://muly.club/assets/appicon.png">
-<link rel="stylesheet" href="/legal.css">
+<meta name="theme-color" content="#F2EFE7">
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&amp;family=Dela+Gothic+One&amp;family=JetBrains+Mono:wght@400;600&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/legal.css?v=20261004-colorful">
 </head>
 <body>
-<main>
-<header>
-<h1>プライバシーポリシー</h1>
-<p class="meta">最終更新日: 2026年10月3日</p>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="MuLy トップへ"><img src="/assets/img/app-icon-512.png" alt="" width="28" height="28"><span>MuLy</span></a>
+  <a class="back-home" href="/">トップへ戻る <span aria-hidden="true">↗</span></a>
 </header>
+<nav class="page-nav" aria-label="サポート・法務ページ">
+<a href="/privacy/" aria-current="page"><span class="mono">01</span>プライバシーポリシー</a>
+<a href="/terms/"><span class="mono">02</span>利用規約</a>
+<a href="/commercial-transactions/"><span class="mono">03</span>特定商取引法に基づく表記</a>
+<a href="/support.html"><span class="mono">04</span>お問い合わせ</a>
+</nav>
+<main id="main" class="page-main">
+<header class="page-hero">
+  <p class="eyebrow mono">[ 01 / MuLy ]</p>
+  <p class="page-display" aria-hidden="true">PRIVACY</p>
+  <h1>プライバシーポリシー</h1>
+  <p class="meta">最終更新日: 2026年10月3日</p>
+</header>
+<div class="document-layout">
+<nav class="contents" aria-label="このページの目次"><p class="mono">CONTENTS</p><ol><li><a href="#section-1">1. 運営者情報</a></li><li><a href="#section-2">2. 基本方針</a></li><li><a href="#section-3">3. 取得する情報と取得方法</a></li><li><a href="#section-4">4. 情報の利用目的</a></li><li><a href="#section-5">5. 第三者への提供・業務委託</a></li><li><a href="#section-6">6. 情報の保存期間・削除</a></li><li><a href="#section-7">7. 利用者の権利</a></li><li><a href="#section-8">8. 子供のプライバシー</a></li><li><a href="#section-9">9. セキュリティ</a></li><li><a href="#section-10">10. 本ポリシーの変更</a></li><li><a href="#section-11">11. お問い合わせ</a></li></ol></nav>
+<article class="document">
 <p>MuLy（以下「本アプリ」といいます）の運営者（以下「運営者」といいます）は、本アプリにおける利用者情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。</p>
-<h2>1. 運営者情報</h2>
+<h2 id="section-1">1. 運営者情報</h2>
 <ul>
 <li>運営者: 藤岡惇</li>
 <li>お問い合わせ先: support@muly.club</li>
 </ul>
-<h2>2. 基本方針</h2>
+<h2 id="section-2">2. 基本方針</h2>
 <p>本アプリは、Apple Music のライブラリおよび CD 取り込み音源の再生履歴を統合して分析する個人利用向けアプリです。運営者は、利用者のプライバシーを尊重し、以下の方針で情報を取り扱います。</p>
 <ul>
 <li><strong>視聴履歴の詳細（いつ・何を聴いたか、実際の再生回数）は外部サーバーに送信しません。</strong> 再生履歴の記録・分析はすべて利用者の端末内（Core Data）で完結します。</li>
 <li>フォロー機能では、公開設定に応じてプロフィールや聴き方の要約をサーバー（Firebase）に送信します。認証、購入管理、通知、不正利用防止およびアプリの品質・利用状況の把握のためにも、以下に記載する情報を外部サービスで取り扱います。</li>
 <li>広告目的のトラッキング（IDFA の収集等）は行いません。</li>
 </ul>
-<h2>3. 取得する情報と取得方法</h2>
+<h2 id="section-3">3. 取得する情報と取得方法</h2>
 <h3>3.1 端末内で記録・分析する情報</h3>
+<div class="table-scroll" role="region" aria-label="取得する情報の表（横にスクロールできます）" tabindex="0">
 <table>
 <tr><th>情報</th><th>取得方法</th><th>保存先</th></tr>
 <tr><td>Apple Music ライブラリ情報（曲名・アーティスト名・アルバム名・ジャンル・再生回数・追加日等）</td><td>MediaPlayer（<code>MPMediaQuery</code>）</td><td>端末内 Core Data</td></tr>
 <tr><td>詳細な再生履歴（再生日時等）</td><td>アプリ内での差分検知により記録</td><td>端末内 Core Data</td></tr>
 </table>
+</div><p class="table-hint">表は横にスクロールできます →</p>
 <p>再生履歴の記録・分析は端末内で行います。公開設定に応じた曲名等の要約の共有（3.3）、画像・楽曲情報を取得する検索通信や利用者が行う画像共有（3.5）は別に行われます。個々の再生日時・実際の再生回数・ライブラリ全体の一覧を送信するものではありません。</p>
 <h3>3.2 Apple Music（Apple 社）と連携して取得する情報</h3>
 <p>本アプリのカタログ再生（サブスクリプションでライブラリに追加せず再生した楽曲）を把握するため、MusicKit を通じて Apple 社のサーバーと通信します。</p>
@@ -131,7 +154,7 @@
 <li>お問い合わせフォームやメールで、返信先メールアドレス、問い合わせ内容、利用者が任意で記入したアプリ・端末情報等を取得し、対応に利用します。</li>
 <li>アプリのサーバー通信や公式サイトの閲覧では、配信・通信の保護に必要なIPアドレスやリクエスト情報等がサービス提供者で処理される場合があります。</li>
 </ul>
-<h2>4. 情報の利用目的</h2>
+<h2 id="section-4">4. 情報の利用目的</h2>
 <p>取得した情報は、以下の目的にのみ利用します。</p>
 <ol>
 <li>本アプリの機能（再生履歴の統合表示、統計、パーソナリティ判定、月次・年間レポート等）の提供</li>
@@ -142,7 +165,7 @@
 <li>購入・復元・有料機能の利用権限の確認</li>
 <li>不正利用の防止、通報対応および安全なサービス運営</li>
 </ol>
-<h2>5. 第三者への提供・業務委託</h2>
+<h2 id="section-5">5. 第三者への提供・業務委託</h2>
 <p>運営者は、法令に基づく場合を除き、取得した情報を無断で第三者に提供しません。ただし、本アプリの提供にあたり、以下のサービス提供者に情報の取扱いを委託します。</p>
 <table>
 <tr><th>提供者</th><th>委託内容</th></tr>
@@ -159,7 +182,7 @@
 <li>RevenueCat プライバシーポリシー: <a href="https://www.revenuecat.com/privacy/">https://www.revenuecat.com/privacy/</a></li>
 </ul>
 <p>外部サービスの運営・処理拠点に応じて、情報が日本国外で取り扱われる場合があります。</p>
-<h2>6. 情報の保存期間・削除</h2>
+<h2 id="section-6">6. 情報の保存期間・削除</h2>
 <ul>
 <li>端末内に保存された再生履歴・ライブラリ情報は、本アプリをアンインストールすることで削除されます。「設定 → 記録 → 計測をリセット」から、計測した再生履歴を削除して記録し直せます。端末のミュージックライブラリ自体を削除する操作ではありません。</li>
 <li>端末内の動作ログ（<code>AppLogStore</code>）は、3日経過または1000件を超えると自動的に古いものから削除されます。</li>
@@ -170,7 +193,7 @@
 <li>フォローの解除・フォロワーの削除・共有設定の停止は、アプリ内の設定画面またはフォロー画面からいつでも行うことができます。</li>
 <li>迷惑なユーザーは、フォロー中/フォロワー一覧またはプロフィール画面からブロックできます。ブロックした相手は、以降あなたに新しいフォローリクエストを送れなくなります。不適切なプロフィールは同画面から運営者へ報告できます。</li>
 </ul>
-<h2>7. 利用者の権利</h2>
+<h2 id="section-7">7. 利用者の権利</h2>
 <p>利用者は、以下をアプリ内の操作でいつでも行うことができます。</p>
 <ul>
 <li>サインアウト、およびアカウントの削除（設定 → プロフィール編集 → アカウント）</li>
@@ -180,20 +203,27 @@
 <li>再生履歴データのリセット</li>
 </ul>
 <p>上記に加え、保存されている情報の開示・訂正・削除等をご希望の場合は、お問い合わせ先までご連絡ください。</p>
-<h2>8. 子供のプライバシー</h2>
+<h2 id="section-8">8. 子供のプライバシー</h2>
 <p>本アプリは 13 歳未満の児童を主な対象としていません。運営者が 13 歳未満の児童から意図的に個人情報を収集することはありません。</p>
-<h2>9. セキュリティ</h2>
+<h2 id="section-9">9. セキュリティ</h2>
 <p>取得した情報は、Firebase の提供するセキュリティ機能（アクセス制御ルール、認証されたユーザーのみへのアクセス許可等）により保護されます。共有情報の閲覧範囲は、アカウントの公開・非公開、機能別の公開範囲、相手ごとの設定やブロック状態に応じて制御します（3.3参照）。</p>
-<h2>10. 本ポリシーの変更</h2>
+<h2 id="section-10">10. 本ポリシーの変更</h2>
 <p>運営者は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、本アプリ内または本ドキュメントの公開先に掲示した時点から効力を生じるものとします。重要な変更を行う場合は、アプリ内通知等で周知するよう努めます。</p>
-<h2>11. お問い合わせ</h2>
+<h2 id="section-11">11. お問い合わせ</h2>
 <p>本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
 <ul>
 <li>メールアドレス: support@muly.club</li>
-</ul>
-<footer>
-  <a href="/terms/">利用規約</a> ・ <a href="/commercial-transactions/">特定商取引法に基づく表記</a> ・ MuLy
-</footer>
+</ul></article>
+</div>
 </main>
+<footer class="site-footer">
+  <div class="footer-top"><a class="footer-word" href="/" aria-label="MuLy トップへ"><span>M</span><span>u</span><span>L</span><span>y</span></a>
+  <p>聴いた音楽を、もっと好きになる。</p></div>
+  <nav aria-label="フッター"><a href="/privacy/" aria-current="page">プライバシーポリシー<span aria-hidden="true">↗</span></a>
+<a href="/terms/">利用規約<span aria-hidden="true">↗</span></a>
+<a href="/commercial-transactions/">特定商取引法に基づく表記<span aria-hidden="true">↗</span></a>
+<a href="/support.html">お問い合わせ<span aria-hidden="true">↗</span></a></nav>
+  <p class="copyright mono">© 2026 MuLy — Music Life + You</p>
+</footer>
 </body>
 </html>

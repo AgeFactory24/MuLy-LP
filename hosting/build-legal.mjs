@@ -6,6 +6,7 @@
 // 「※公開前の確認事項」の引用ブロックは開発者向けの注記のため、公開ページからは除外する。
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { pageStyles, pageHeader, pageHero, pageFooter } from "./page-chrome.mjs";
 
 const escapeHTML = (s) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -45,6 +46,8 @@ function convert(markdown) {
     // 2行目は区切り行（|---|---|）なのでヘッダとして扱い読み飛ばす
     const cells = (row) =>
       row.replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+    const wide = cells(rows[0]).length > 2;
+    if (wide) out.push('<div class="table-scroll" role="region" aria-label="取得する情報の表（横にスクロールできます）" tabindex="0">');
     out.push("<table>");
     rows.forEach((row, idx) => {
       if (idx === 1 && /^[\s|:-]+$/.test(row)) return;
@@ -54,6 +57,7 @@ function convert(markdown) {
       );
     });
     out.push("</table>");
+    if (wide) out.push('</div><p class="table-hint">表は横にスクロールできます →</p>');
   };
 
   const flushList = (ordered) => {
@@ -127,17 +131,18 @@ function convert(markdown) {
   return { title, body: out.join("\n") };
 }
 
-const legalLinks = [
-  { label: "プライバシーポリシー", href: "/privacy/" },
-  { label: "利用規約", href: "/terms/" },
-  { label: "特定商取引法に基づく表記", href: "/commercial-transactions/" },
-];
-
 function page({ title, body, currentHref, description }) {
-  const footerLinks = legalLinks
-    .filter((link) => link.href !== currentHref)
-    .map((link) => `<a href="${link.href}">${link.label}</a>`)
-    .join(" ・ ");
+  const updated = body.match(/<p class="meta">(.*?)<\/p>/)?.[1] ?? "";
+  let content = body.replace(/<header>[\s\S]*?<\/header>/, "");
+  const sections = [];
+  content = content.replace(/<h2>(.*?)<\/h2>/g, (_match, label) => {
+    const id = `section-${sections.length + 1}`;
+    sections.push({ id, label });
+    return `<h2 id="${id}">${label}</h2>`;
+  });
+  const contents = sections.length
+    ? `<nav class="contents" aria-label="このページの目次"><p class="mono">CONTENTS</p><ol>${sections.map(section => `<li><a href="#${section.id}">${section.label}</a></li>`).join("")}</ol></nav>`
+    : `<aside class="contents"><p class="mono">INFORMATION</p><p>販売条件について</p><a class="text-link" href="/support.html">お問い合わせ ↗</a></aside>`;
 
   return `<!DOCTYPE html>
 <html lang="ja">
@@ -160,15 +165,18 @@ function page({ title, body, currentHref, description }) {
 <meta name="twitter:title" content="${title} | MuLy">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="https://muly.club/assets/appicon.png">
-<link rel="stylesheet" href="/legal.css">
+${pageStyles}
 </head>
 <body>
-<main>
-${body}
-<footer>
-  ${footerLinks} ・ MuLy
-</footer>
+${pageHeader(currentHref)}
+<main id="main" class="page-main">
+${pageHero(currentHref, title, updated)}
+<div class="document-layout">
+${contents}
+<article class="document">${content}</article>
+</div>
 </main>
+${pageFooter(currentHref)}
 </body>
 </html>
 `;
