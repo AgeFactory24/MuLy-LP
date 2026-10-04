@@ -15,5 +15,12 @@
     "owner": "494:845",
     "drifter": "494:911"
   },
-  "sourceDirectory": "source-assets/stars"
+  "sourceDirectory": "source-assets/stars",
+  "supplementalNodes": {
+    "drifter": {
+      "nodeId": "94:910",
+      "description": "Paper-plane trail is a sibling of Animated Drifter in Figma; include it behind the transparent character.",
+      "sourceSvgTranslation": [6.94873, 0]
+    }
+  }
 }
