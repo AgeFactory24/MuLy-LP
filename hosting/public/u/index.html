@@ -92,21 +92,28 @@
 <body>
   <div class="card">
     <div class="icon">🎵</div>
-    <h1>MuLyで<br><span class="handle" id="handle">@...</span>さんの<br>プロフィールを見る</h1>
+    <h1 id="title">MuLyのプロフィール</h1>
     <p>MuLyは、Apple MusicとCD音源の再生履歴を統合して分析するアプリです。フォロー機能で、お互いのリスニングランキングを見せ合えます。</p>
-    <!--
-      公開前の確認事項：App Storeでの配信開始後、下記リンクを実際のApp Store URLに差し替えてください。
-      アプリが既にインストールされている端末では、このページが表示される前にUniversal Linksが
-      アプリを直接開くため、このページはアプリ未インストールの相手にのみ表示されます。
-    -->
-    <a class="cta" href="https://apps.apple.com/">App Storeで開く</a>
-    <div class="note">MuLy をインストール後、もう一度このリンクを開くとプロフィールに移動します</div>
+    <!-- App Store URLの公開前は、公式サイトの配信案内へ誘導する。 -->
+    <a class="cta" href="https://muly.club/#download">MuLyの配信情報を見る</a>
+    <p class="note" id="note">プロフィールはMuLyアプリで確認できます。インストール済みの場合は、Safariの「開く」が表示されていればタップするか、メッセージなどに届いた元のリンクを開いてください。</p>
+    <noscript><p class="note">プロフィールIDを表示するにはJavaScriptを有効にしてください。</p></noscript>
   </div>
   <script>
-    var parts = window.location.pathname.split('/').filter(Boolean);
-    var handle = parts.length >= 2 ? parts[1] : null;
-    if (handle) {
-      document.getElementById('handle').textContent = '@' + decodeURIComponent(handle);
+    // アプリと同じID形式に限定し、不正なpercent encodingでも描画を止めない。
+    var path;
+    try { path = decodeURIComponent(window.location.pathname); } catch (_) { path = ''; }
+    var match = /^\/u\/([a-zA-Z0-9_]{3,20})\/?$/.exec(path);
+    var title = document.getElementById('title');
+    if (match && match[0] === path) {
+      title.textContent = '';
+      var handle = document.createElement('span');
+      handle.className = 'handle';
+      handle.textContent = '@' + match[1];
+      title.append('MuLyで', document.createElement('br'), handle, 'さんの', document.createElement('br'), 'プロフィールを見る');
+    } else {
+      title.textContent = 'プロフィールのリンクが正しくありません';
+      document.getElementById('note').textContent = '共有されたリンクを確認するか、相手にもう一度QRコードを共有してもらってください。';
     }
   </script>
 </body>
